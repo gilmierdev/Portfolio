@@ -1,75 +1,61 @@
-# React + TypeScript + Vite
+# Alex Rivera — Portfolio (React + TypeScript + Tailwind)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React/TSX conversion of the original single-file HTML portfolio, split into
+one component per file.
 
-Currently, two official plugins are available:
+## Getting started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Then open the local URL Vite prints (usually http://localhost:5173).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Project structure
 
 ```
+src/
+  data/
+    config.ts     ← PERSONALIZE HERE: your name, links, skills, projects, timeline
+    chatBot.ts     ← rule-based chat assistant replies
+  hooks/
+    useTheme.ts    ← dark/light mode, persisted to localStorage
+    useReveal.ts   ← scroll-reveal animation hook
+  components/
+    Navbar.tsx
+    Hero.tsx
+    About.tsx
+    Projects.tsx
+    ProjectModal.tsx
+    Contact.tsx
+    Footer.tsx
+    ChatWidget.tsx
+    Reveal.tsx     ← shared scroll-reveal wrapper
+  types/index.ts   ← shared TypeScript types
+  App.tsx          ← composes all sections
+  main.tsx         ← React entry point
+  index.css        ← design tokens (light/dark) + custom utility classes
+```
+
+## Personalizing
+
+Almost everything on the page is data-driven from `src/data/config.ts` —
+edit that file to change your name, email, socials, skills, timeline, and
+projects without touching any component markup.
+
+The contact form is a client-side demo (no backend). Hook it up to
+Formspree, EmailJS, or your own API inside `handleSubmit` in
+`src/components/Contact.tsx`.
+
+The chat widget is a simple keyword-matching bot (`src/data/chatBot.ts`).
+Swap `getBotReply` for a `fetch()` call to a backend that proxies the
+Anthropic API if you want a real AI-powered assistant.
+
+## Build
+
+```bash
+npm run build
+```
+
+Outputs a production build to `dist/`.
