@@ -8,10 +8,10 @@ import type { SiteConfig } from '../types'
  * to change layout/structure.
  */
 export const CONFIG: SiteConfig = {
-  name: 'Alex Rivera',
-  email: 'alex.rivera@example.com',
-  github: 'https://github.com/yourusername',
-  linkedin: 'https://linkedin.com/in/yourusername',
+  name: 'Gilmier Cabil',
+  email: 'gilmiercabil@example.com',
+  github: 'https://github.com/gilmierdev',
+  linkedin: 'https://linkedin.com/in/gilmiercabil',
 
   interests: [
     'Open source',
@@ -23,10 +23,10 @@ export const CONFIG: SiteConfig = {
   ],
 
   skillGroups: [
-    { label: 'Languages', items: ['JavaScript', 'Python', 'Java', 'C++', 'SQL', 'HTML/CSS'] },
+    { label: 'Languages', items: ['JavaScript', 'Python', 'Java', 'PortgreSQL', 'HTML/CSS'] },
     { label: 'Frameworks & Tools', items: ['React', 'Node.js', 'Tailwind CSS', 'Git & GitHub', 'Express', 'MongoDB'] },
-    { label: 'Currently learning', items: ['TypeScript', 'Docker', 'System Design basics'] },
-    { label: 'Soft skills', items: ['Problem solving', 'Team collaboration', 'Clear communication', 'Time management'] },
+    { label: 'Currently learning', items: ['TypeScript', 'Java', 'System Design basics', 'Functional Programming'] },
+    { label: 'Soft skills', items: ['Problem solving', 'Team collaboration', 'Time management'] },
   ],
 
   timeline: [
@@ -53,7 +53,7 @@ export const CONFIG: SiteConfig = {
         'The hardest part was getting real-time sync working without the UI feeling laggy. I underestimated how tricky state management gets once multiple people are editing the same board — I ended up learning WebSockets from scratch to fix it, and that alone taught me more than a whole semester of lectures.',
       tech: ['React', 'Node.js', 'MongoDB', 'Socket.io', 'Tailwind CSS'],
       demo: '#',
-      github: 'https://github.com/yourusername/studysync',
+      github: 'https://github.com/gilmierdev/studysync',
       accent: 'from-primary to-secondary',
       emoji: '📚',
     },
